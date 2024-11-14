@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico sobre Imposto de Renda</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Gráfico sobre Imposto de Renda</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Gráfico de Imposto de Renda</h2>
+            <canvas id="grafico"></canvas>
+        </section>
+        <a href="html1.html" class="button">Voltar para a Página Inicial</a>
+    </main>
+
+    <script>
+        var ctx = document.getElementById('grafico').getContext('2d');
+        var grafico = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Até R$ 1.903,98', 'De R$ 1.903,99 até R$ 2.826,65', 'De R$ 2.826,66 até R$ 3.751,05', 'De R$ 3.751,06 até R$ 4.664,68', 'Acima de R$ 4.664,68'],
+                datasets: [{
+                    label: 'Faixas de Imposto de Renda',
+                    data: [0, 7.5, 15, 22.5, 27.5],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 30
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
